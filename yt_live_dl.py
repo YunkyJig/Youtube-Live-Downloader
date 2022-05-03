@@ -13,8 +13,6 @@ import sys
 # ffmpeg with python
 # https://stackoverflow.com/questions/42438380/ffmpeg-in-python-script
 
-# TODO refactor code into module
-# TODO create script to test upload to google drive
 # TODO create script to find livestream of a channel
 # TODO pipe ffmpeg output elsewhere
 
@@ -91,13 +89,3 @@ def dl_stream_infinite(url, filename):
     pre_time_stamp = 0
     while(1):
         pre_time_stamp = dl_stream(url, filename, pre_time_stamp)
-
-print('starting stream download')
-# resetting list
-with open('tsList.txt', 'w') as f:
-    f.write('')
-
-url = "https://www.youtube.com/watch?v=xWBD56Y7Jgw"
-dl_stream_infinite(url, "live")
-# dl_num_stream_chunks(url, "live", 5)
-convertTsFilesToMp4()
